@@ -22,7 +22,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const colorOptions = document.querySelectorAll(".color-option");
 
-fetch("http://localhost:3000/api/canvas")
+fetch("https://pixelplace.adaptable.app/api/canvas")
 	.then((res) => res.json())
 	.then((data) => {
 		let canvasImg = [];
