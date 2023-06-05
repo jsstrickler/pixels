@@ -17,6 +17,7 @@ const colors = [
 	"rgb(255, 69, 0)",
 ];
 const express = require("express");
+const { disconnect } = require("process");
 const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
@@ -40,6 +41,10 @@ io.on("connection", (socket) => {
 		canvasArr[data.x + data.y * canvasSize] = colorIndex;
 
 		io.emit("pixelReceived", data);
+	});
+
+	socket.on("disconnect", () => {
+		console.log("a user disconnected");
 	});
 });
 
